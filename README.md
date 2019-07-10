@@ -1,5 +1,5 @@
 # tryUnless
-keep trying a function unless a condition is met for X times per second, give up after Y seconds
+keep **try**ing a function at an **interval** of X **unless** a condition is met, or a **timeout** of Y is reached!
 
 
 Really simple utility script, use like
