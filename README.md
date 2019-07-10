@@ -1,5 +1,5 @@
 # tryUnless
-keep **try**ing a function at an **interval** of X **unless** a condition is met, or a **timeout** of Y is reached!
+keep **try**ing a function at X times **perSecond**, **unless** a condition is met, or **for** a certain time period!
 
 
 Really simple utility script, use like
@@ -19,8 +19,28 @@ tryUnless({
             return false;
         }
     },
-    interval: 100,  // optional (default 50)
-    timeout: 5000   // optional (default 10000)
+    perSecond: 50,  // optional (default 20 times per second)
+    for: 20         // optional (default 10 seconds)
 })
 ```
 
+without an **unless** method the **try** function will run until the **for** timeout is reached.
+
+```javascript
+tryUnless({
+    try: function(){
+        console.log("this will run for 20 seconds!");
+    },
+    for: 20
+})
+```
+
+without an **unless** method *and* without a **for** timeout the **try** function will run indefinitely.
+
+```javascript
+tryUnless({
+    try: function(){
+        console.log("this will run forever!");
+    }
+})
+```
