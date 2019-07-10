@@ -6,8 +6,8 @@ function tryUnless(args){
         }else{
             args.try();
         }
-    }, args.interval || 50);
-    (args.unless || args.timeout) && setTimeout(function(){
+    }, (1000 / args.perSecond) || 50);
+    (args.unless || args.for) && setTimeout(function(){
         clearInterval(id);
-    }, args.timeout || 10000)
+    }, (1000 * args.for) || 10000)
 }
