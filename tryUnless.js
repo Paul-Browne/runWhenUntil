@@ -1,4 +1,4 @@
-/*! tryUnless v1.0.0 | MIT License | github.com/paul-browne/tryUnless */ 
+/*! tryUnless v1.1.0 | MIT License | github.com/paul-browne/tryUnless */ 
 function tryUnless(args){
     var id = setInterval(function(){
         if(args.unless && args.unless()){
