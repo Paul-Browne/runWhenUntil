@@ -1,19 +1,19 @@
-# tryUnless
-keep **try**ing a function at X times **perSecond**, **unless** a condition is met, or **for** a certain time period!
+# runWhenUntil
 
+## run until
 
-Really simple utility script, use like
+**run** a script at a rate of X times **perSecond** **until** a condition is met, or until the **for** timeout is reached
 
 ```javascript
-tryUnless({
-    try: function(){
-        console.log("keep on trying!");
+runWhenUntil({
+    run: function(){
+        console.log("run forest run!!");
         if(Math.random() < 0.1){
-            window.test = true;
+            window.end = true;
         }
     },
-    unless: function(){
-        if(window.test){
+    until: function(){
+        if(window.end){
             return true;
         }else{
             return false;
@@ -24,23 +24,59 @@ tryUnless({
 })
 ```
 
-without an **unless** method the **try** function will run until the **for** timeout is reached.
+## run when
+
+**run** a script (once) **when** a condition is met (condition is tested X times **perSecond**) _or_ the script will not **run** if the **for** timeout is reached.
 
 ```javascript
-tryUnless({
-    try: function(){
-        console.log("this will run for 20 seconds!");
+runWhenUntil({
+    run: function(){
+        console.log("will run once only!");
     },
-    for: 20
+    when: function(){
+        if(window.end){
+            return true;
+        }else{
+            return false;
+        }
+    }
 })
 ```
 
-without an **unless** method *and* without a **for** timeout the **try** function will run indefinitely.
+## run when until
+
+**when** a condition is met **run** a script (once) _but_ the script won't fire if the **until** condition is met first. The rate at which the **when** condition is tested is X times **perSecond**. The **run** script will not fire if the **for** timeout is reached.
 
 ```javascript
-tryUnless({
-    try: function(){
-        console.log("this will run forever!");
+runWhenUntil({
+    run: function(){
+        console.log("will run once only!");
+    },
+    when: function(){
+        if(window.start){
+            return true;
+        }else{
+            return false;
+        }
+    },
+    until: function(){
+        if(window.end){
+            return true;
+        }else{
+            return false;
+        }
+    }
+})
+```
+
+## just run
+
+without an **until** method the **run** function will run until the **for** timeout is reached.
+
+```javascript
+runWhenUntil({
+    run: function(){
+        console.log("run forest run!!");
     }
 })
 ```
