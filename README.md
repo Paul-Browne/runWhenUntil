@@ -88,6 +88,6 @@ runWhenUntil({
     run: function(){
         console.log("run forest run!!");
     },
-    for: Infinity
+    for: 86400
 })
 ```
