@@ -81,7 +81,7 @@ runWhenUntil({
 })
 ```
 
-**run** forever!.
+**run** forever! (well, 24 hours)
 
 ```javascript
 runWhenUntil({
