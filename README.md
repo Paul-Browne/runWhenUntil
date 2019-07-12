@@ -80,3 +80,14 @@ runWhenUntil({
     }
 })
 ```
+
+**run** forever!.
+
+```javascript
+runWhenUntil({
+    run: function(){
+        console.log("run forest run!!");
+    },
+    for: Infinity
+})
+```
